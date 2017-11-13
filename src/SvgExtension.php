@@ -3,7 +3,7 @@
 namespace manuelodelain\Twig\Extension;
 
 /**
- * example: {{ svg('img/marker', {classes: 'special-svg', attr: {class: 'inline-svg', id: 'marker-1'}}) }}
+ *
  */
 
 class SvgExtension extends \Twig_Extension
@@ -28,12 +28,19 @@ class SvgExtension extends \Twig_Extension
   }
 
   public function getSvg($path, $params = []) {
-    $fullPath = $this->basePath . '/' . $path;
+    if (strlen($this->basePath) > 0){
+      $fullPath = $this->basePath . '/' . $path;
+    }else{
+      $fullPath = $path;
+    }
+
     $ext = substr($fullPath, -4);
 
     if ($ext !== '.svg'){
       $fullPath .= '.svg';
     }
+
+    $fullPath = realpath($fullPath);
     
     $svgString = file_get_contents($fullPath);
 
