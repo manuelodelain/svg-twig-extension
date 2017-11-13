@@ -1,62 +1,42 @@
-# Linkify Twig extension
+# Svg Twig extension
 
-Use [Linkify](https://github.com/misd-service-development/php-linkify) in your twig template.
+Add inline svg with Twig
 
 ## Installation
 
 With Composer:
-```composer require manuelodelain/linkify-twig-extension```
+```composer require manuelodelain/svg-twig-extension```
 
 ## Usage
 
 ```
-use manuelodelain\Twig\Extension\LinkifyExtension;
+use manuelodelain\Twig\Extension\SvgExtension;
 
 $twig = new Twig_Environment(...);
 
-$twig->addExtension(new LinkifyExtension());
+$twig->addExtension(new SvgExtension());
 ```
 
 ```
-{{ 'Lorem ipsum ... www.website.com ...'|linkify }}
+{{ svg('file.svg') }}
 ```
 
-Will output:
-```
-Lorem ipsum ... <a href="www.website.com">www.website.com</a> ...
-```
+Will output your svg file inline.
 
-Don't forget to apply the `raw` filter for an HTML output:
+You can ommit the extension
 ```
-{{ 'Lorem ipsum ... www.website.com ...'|linkify|raw }}
+{{ svg('file') }}
 ```
 
 ## Options
 
-As Linkify, set default options at the instanciation or at the method call.
-
-At the instanciation (applied to all links):
+Add or replace attributes with the `attr` property:
 ```
-use manuelodelain\Twig\Extension\LinkifyExtension;
-
-$twig = new Twig_Environment(...);
-
-$twig->addExtension(new LinkifyExtension(array('attr' => array('target' => '_blank'))));
+{{ svg('marker', {attr: {class: 'inline-svg', id: 'marker-1'}}) }}
 ```
 
-At the method call:
+Add CSS classes:
 ```
-{{ 'Lorem ipsum ... www.website.com ...'|linkify({"attr": {"target": "_blank"}}) }}
+{{ svg('marker', {classes: 'add-classname another-classname'}) }}
 ```
-
-Will output:
-```
-Lorem ipsum ... <a href="www.website.com" target="_blank">www.website.com</a> ...
-```
-
-[See the Linkify options](https://github.com/misd-service-development/php-linkify#options)
-
-
-
-
 
