@@ -23,7 +23,7 @@ $twig->addExtension(new SvgExtension());
 
 Will output your svg file inline.
 
-You can ommit the extension
+You can omit the extension
 ```
 {{ svg('file') }}
 ```
