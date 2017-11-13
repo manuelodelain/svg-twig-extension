@@ -1,0 +1,11 @@
+{
+    "name": "manuelodelain/svg-twig-extension",
+    "description": "Add inline svg with Twig",
+    "autoload": {
+      "psr-4": {"manuelodelain\\Twig\\Extension\\": "src/"}
+    },
+    "require-dev": {
+      "twig/twig": "~1.0"
+    },
+    "require": {}
+}
