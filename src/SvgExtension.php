@@ -3,7 +3,7 @@
 namespace manuelodelain\Twig\Extension;
 
 /**
- * example: {{ svg('img/marker', {classes: 'special-svg', attr: {class: 'inline-svg', id: 'marker-1'}}) }}
+ *
  */
 
 class SvgExtension extends \Twig_Extension
