@@ -18,25 +18,30 @@ $twig->addExtension(new SvgExtension());
 ```
 
 ```
-{{ svg('file.svg') }}
+{{ svg('img.svg') }}
 ```
 
 Will output your svg file inline.
 
 You can omit the extension
 ```
-{{ svg('file') }}
+{{ svg('img') }}
+```
+
+You can add a global base path:
+```
+new SvgExtension('assets/img')
 ```
 
 ## Options
 
 Add or replace attributes with the `attr` property:
 ```
-{{ svg('marker', {attr: {class: 'inline-svg', id: 'marker-1'}}) }}
+{{ svg('img.svg', {attr: {class: 'inline-svg', id: 'marker-1'}}) }}
 ```
 
 Add CSS classes:
 ```
-{{ svg('marker', {classes: 'add-classname another-classname'}) }}
+{{ svg('img.svg', {classes: 'add-classname another-classname'}) }}
 ```
 
