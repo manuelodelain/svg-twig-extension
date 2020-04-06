@@ -1,6 +1,6 @@
 # Svg Twig extension
 
-Add inline svg with Twig
+Add inline svg with Twig version 2 or 3
 
 ## Installation
 
@@ -11,8 +11,9 @@ With Composer:
 
 ```
 use manuelodelain\Twig\Extension\SvgExtension;
+use Twig\Environment;
 
-$twig = new Twig_Environment(...);
+$twig = new Environment(...);
 
 $twig->addExtension(new SvgExtension());
 ```

@@ -5,7 +5,7 @@
       "psr-4": {"manuelodelain\\Twig\\Extension\\": "src/"}
     },
     "require-dev": {
-      "twig/twig": "~1.0"
+      "twig/twig": "2.12.5 - 3"
     },
     "require": {}
 }
