@@ -1,15 +1,17 @@
 <?php
 
-require('../vendor/autoload.php');
+require __DIR__ . ('/../vendor/autoload.php');
 
 use manuelodelain\Twig\Extension\SvgExtension;
+use Twig\Environment;
+use Twig\Loader\ArrayLoader;
 
-$loader = new Twig_Loader_Array(array(
+$loader = new ArrayLoader(array(
   'base' => "{{ svg('marker') }}",
   'options' => "{{ svg('marker', {classes: 'special-marker', attr: {class: 'inline-svg', id: 'marker-1'}}) }}",
 ));
 
-$twig = new Twig_Environment($loader);
+$twig = new Environment($loader);
 
 $twig->addExtension(new SvgExtension());
 
