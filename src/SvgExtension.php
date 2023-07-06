@@ -47,9 +47,13 @@ class SvgExtension extends AbstractExtension
             $fullPath .= '.svg';
         }
 
-        $fullPath = realpath($fullPath);
+        $realpath = realpath($fullPath);
     
-        $svgString = file_get_contents($fullPath);
+        if (!$realpath) {
+            return $fullPath . "miss";
+        }
+
+        $svgString = file_get_contents($realpath);
 
         $hasAttr = array_key_exists('attr', $params);
         $hasClasses = array_key_exists('classes', $params);
